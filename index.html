@@ -5,29 +5,35 @@
     <title>Title</title>
     <link rel="stylesheet" href="src/jquery.pagination.css">
     <style>
-        body{
+        body {
             font-size: 14px;
             line-height: 1.42857143;
-            font-family: Helvetica Neue,Hiragino Sans GB,Microsoft YaHei,\\9ED1\4F53,Helvetica,Arial,sans-serif;
+            font-family: Helvetica Neue, Hiragino Sans GB, Microsoft YaHei, \\9ED1\4F53, Helvetica, Arial, sans-serif;
         }
     </style>
 </head>
 <body>
 
-<div id="test" style="width: 800px;margin: 0 auto;">
-</div>
-<div id="test1" style="width: 800px;margin: 0 auto;">
-</div>
+<div id="test" style="width: 800px;margin: 0 auto;"></div>
+<div id="test0" style="width: 800px;margin: 0 auto;"></div>
+<div id="test1" style="width: 800px;margin: 0 auto;"></div>
 
-<script type="text/javascript" src="src/jquery.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="src/jquery.pagination.js"></script>
 
 <script>
 
     console.log($('#test').pagination({
+        total: 9,
+        callback: function (pageno, pagination) {
+            console.log(pagination);
+        }
+    }))
+    console.log($('#test0').pagination({
         total: 120,
         callback: function (pageno, pagination) {
             console.log(pagination);
+            pagination.setTotal((Math.random() * 1000).toFixed(0));
         }
     }))
     console.log($('#test1').pagination({
