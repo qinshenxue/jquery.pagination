@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="demo/github.css">
     <link rel="stylesheet" href="src/jquery.pagination.css">
     <style>
         body {
@@ -10,36 +11,44 @@
             line-height: 1.42857143;
             font-family: Helvetica Neue, Hiragino Sans GB, Microsoft YaHei, \\9ED1\4F53, Helvetica, Arial, sans-serif;
         }
+
+        code {
+            font-family: Consolas;
+        }
     </style>
 </head>
 <body>
+<div style="width:800px;margin: 0 auto;">
 
-<div id="test" style="width: 600px;margin: 50px 0 20px 20px"></div>
-<div id="out"  style="margin-left:20px;"></div>
+    <h2>示例</h2>
+    <div id="test" style="margin: 20px 0"></div>
+    <div id="out" style="margin: 20px 0"></div>
+    <h2>示例代码</h2>
+    <pre><code id="pre" class="javascript hljs">$(<span class="hljs-string">'#test'</span>).pagination({
+    <span class="hljs-attr">current</span>: <span class="hljs-number">2</span>,  <span class="hljs-comment">// 默认为1</span>
+    pageSize: <span class="hljs-number">20</span>,  <span class="hljs-comment">// 默认为10</span>
+    total: <span class="hljs-number">1234</span>,  <span class="hljs-comment">// 默认0</span>
+    callback: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pageno, pagination</span>) </span>{
+        $(<span class="hljs-string">'#out'</span>).text(<span class="hljs-string">'获取第'</span> + pageno + <span class="hljs-string">'数据'</span>);
+        <span class="hljs-comment">// 随机数模拟页码改变</span>
+        pagination.setTotal((<span class="hljs-built_in">Math</span>.random() * <span class="hljs-number">1000</span>).toFixed(<span class="hljs-number">0</span>));
+    }
+})</code></pre>
+</div>
+
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="src/jquery.pagination.js"></script>
-
 <script>
-
-
-  /*  console.log($('#test').pagination({
-        callback: function (pageno, pagination) {
-            console.log(pagination);
-        }
-    }))*/
-    $('#test').pagination({
-        total: 123,
-        callback: function (pageno, pagination) {
-            $('#out').text('获取第'+pageno+'数据');
-            //pagination.setTotal((Math.random() * 1000).toFixed(0));
-        }
-    })
-  /*  console.log($('#test1').pagination({
-        total: 210,
-        callback: function (pageno, pagination) {
-            console.log(pagination);
-        }
-    }))*/
+$('#test').pagination({
+    current: 2,  // 默认为1
+    pageSize: 20,  // 默认为10
+    total: 1234,  // 默认0
+    callback: function (pageno, pagination) {
+        $('#out').text('获取第' + pageno + '数据');
+        // 随机数模拟页码改变
+        pagination.setTotal((Math.random() * 1000).toFixed(0));
+    }
+})
 </script>
 
 </body>
