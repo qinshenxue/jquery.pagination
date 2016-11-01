@@ -1,6 +1,9 @@
 #jquery.pagination
 ### 极简实用的分页插件，min版小至1k多
 
+## 演示地址
+[http://qinshenxue.oschina.io/jquery.pagination/](http://qinshenxue.oschina.io/jquery.pagination/)
+
 ## 介绍
 - 代码简单，未压缩版不足3k，压缩版1k多
 - 结构简单，自己可以随意修改样式
