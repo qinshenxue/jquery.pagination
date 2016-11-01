@@ -74,7 +74,9 @@
                 }
             }
         });
-        render();
+        if (total > 0) {
+            render();
+        }
         return this;
     };
 
