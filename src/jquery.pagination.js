@@ -20,7 +20,11 @@
             if (pages.length) {
                 html += '<ul class="pagination-list"><li data-page="' + (current - 1) + '" class="' + (current == 1 ? "disabled" : "") + '" >上一页</li>';
                 for (var i = 0, j = pages.length; i < j; i++) {
-                    html += '<li data-page="' + pages[i] + '" class="' + (current == pages[i] ? "active" : "") + '">' + pages[i] + '</li>'
+                    if (pages[i] == options.ellipsis) {
+                        html += '<li class="ellipsis">' + options.ellipsis + '</li>'
+                    } else {
+                        html += '<li data-page="' + pages[i] + '" class="' + (current == pages[i] ? "active" : "") + '">' + pages[i] + '</li>'
+                    }
                 }
                 html += '<li data-page="' + (current + 1) + '" class="' + (current == pageCount ? "disabled" : "") + '">下一页</li></ul>';
             }
