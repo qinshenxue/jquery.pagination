@@ -14,51 +14,32 @@
 </head>
 <body>
 
-<div id="test" style="width: 800px;margin: 0 auto;"></div>
-<div id="test0" style="width: 800px;margin: 0 auto;"></div>
-<div id="test1" style="width: 800px;margin: 0 auto;"></div>
-
+<div id="test" style="width: 600px;margin: 50px 0 20px 20px"></div>
+<div id="out"  style="margin-left:20px;"></div>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="src/jquery.pagination.js"></script>
 
 <script>
 
-$('#test').pagination({
-    callback: function (no, pagination) {
-        // no是点击的页码
-        // pagination是当前组件
-        $.ajax({
-            url: '',
-            data: {
-                pageIndex: no,
-            },
-            success: function (res) {
-                // 总数一般是动态的，调用setTotal更新
-                pagination.setTotal(res.data.total);
-            }
-        })
-    }
-})
 
-    console.log($('#test').pagination({
-        total: 9,
+  /*  console.log($('#test').pagination({
         callback: function (pageno, pagination) {
             console.log(pagination);
         }
-    }))
-    console.log($('#test0').pagination({
-        total: 120,
+    }))*/
+    $('#test').pagination({
+        total: 123,
         callback: function (pageno, pagination) {
-            console.log(pagination);
-            pagination.setTotal((Math.random() * 1000).toFixed(0));
+            $('#out').text('获取第'+pageno+'数据');
+            //pagination.setTotal((Math.random() * 1000).toFixed(0));
         }
-    }))
-    console.log($('#test1').pagination({
+    })
+  /*  console.log($('#test1').pagination({
         total: 210,
         callback: function (pageno, pagination) {
             console.log(pagination);
         }
-    }))
+    }))*/
 </script>
 
 </body>

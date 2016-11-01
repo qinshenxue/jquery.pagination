@@ -20,3 +20,4 @@ $('#test').pagination({
     }
 })
 ```
+![](readme/pagination.gif)
