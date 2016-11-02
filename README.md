@@ -22,7 +22,7 @@
 ## 运行效果
 ![](readme/pagination.gif)
 ## 自定义样式
-![](readme/custom_style.gif)
+![](readme/custom_style.png)
 ## 使用示例
 ``` javascript
 $('.wrap').pagination({
