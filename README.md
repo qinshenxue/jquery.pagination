@@ -21,6 +21,8 @@
 
 ## 运行效果
 ![](readme/pagination.gif)
+## 自定义样式
+![](readme/custom_style.gif)
 ## 使用示例
 ``` javascript
 $('.wrap').pagination({

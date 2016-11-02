@@ -39,12 +39,12 @@
     background: #ecf5fd
 }
 
-.pagination-list li.active {
+.pagination-list li[data-page].active {
     border-color: #3492e9;
     background: #ecf5fd
 }
 
-.pagination-list li.disabled {
+.pagination-list li[data-page].disabled {
     color: #888;
     background: #fff;
     cursor: not-allowed
