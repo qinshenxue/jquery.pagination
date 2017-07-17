@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>jquery.pagination演示</title>
@@ -108,14 +109,15 @@
         }
     </style>
 </head>
-<body>
-<div style="width:800px;margin: 0 auto;">
 
-    <h2>示例</h2>
-    <div id="test" style="margin: 20px 0"></div>
-    <div id="output" style="margin: 20px 0"></div>
-    <h2>示例代码</h2>
-    <pre><code class="javascript hljs">$(<span class="hljs-string">'#test'</span>).pagination({
+<body>
+    <div style="width:800px;margin: 0 auto;">
+
+        <h2>示例</h2>
+        <div id="test" style="margin: 20px 0"></div>
+        <div id="output" style="margin: 20px 0"></div>
+        <h2>示例代码</h2>
+        <pre><code class="javascript hljs">$(<span class="hljs-string">'#test'</span>).pagination({
     <span class="hljs-attr">current</span>: <span class="hljs-number">2</span>,  <span
                 class="hljs-comment">// 默认为1</span>
     pageSize: <span class="hljs-number">20</span>,  <span class="hljs-comment">// 默认为10</span>
@@ -125,39 +127,54 @@
                 class="hljs-string">'数据'</span>);
     }
 })</code></pre>
-    <h2>自定义样式</h2>
-    <div id="custom" class="pagination-custom" style="margin: 20px 0"></div>
-    <pre><code class="javascript hljs">$(<span class="hljs-string">'#custom'</span>).pagination({
-    <span class="hljs-attr">current</span>: <span class="hljs-number">2</span>,  <span class="hljs-comment">// 默认为1</span>
-    pageSize: <span class="hljs-number">20</span>,  <span class="hljs-comment">// 默认为10</span>
-    total: <span class="hljs-number">1234</span>,  <span class="hljs-comment">// 默认0</span>
-    callback: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pageIndex, pagination</span>) </span>{
+        <h2>自定义样式</h2>
+        <div id="custom" class="pagination-custom" style="margin: 20px 0"></div>
+        <pre><code class="javascript hljs">$(<span class="hljs-string">'#custom'</span>).pagination({
+    <span class="hljs-attr">current</span>: <span class="hljs-number">2</span>,  <span class="hljs-comment">// 首次显示第2页</span>
+    total: <span class="hljs-number">1234</span>,
+    <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pageIndex, pagination</span>) </span>{
 
     }
 })</code></pre>
-</div>
+        <h2>API</h2>
+        <h3>pagination.setTotal(total:number)</h3>
+        <p>用于回调修改数据总数，比如ajax请求后，数据总数会发生改变，分页总数也要相应的发生改变</p>
+        <div id="api" class="pagination-custom" style="margin: 20px 0"></div>
+        <pre><code class="javascript hljs">$(<span class="hljs-string">'#api'</span>).pagination({
+    <span class="hljs-attr">total</span>: <span class="hljs-number">199</span>,
+    <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pageIndex, pagination</span>) </span>{
+        pagination.setTotal(<span class="hljs-number">101</span>); <span class="hljs-comment">// 请求后将总数改为101条</span>
+    }
+})</code></pre>
+    </div>
 
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="src/jquery.pagination.js?v=1"></script>
-<script>
-    $('#test').pagination({
-        current: 2,  // 默认为1
-        pageSize: 20,  // 默认为10
-        total: 1234,  // 默认0
-        callback: function (pageIndex, pagination) {
-            $('#output').text('获取第' + pageIndex + '页数据');
-        }
-    })
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="src/jquery.pagination.js"></script>
+    <script>
+        $('#test').pagination({
+            current: 2,  // 默认为1
+            pageSize: 20,  // 默认为10
+            total: 1234,  // 默认0
+            callback: function (pageIndex, pagination) {
+                $('#output').text('获取第' + pageIndex + '页数据');
+            }
+        })
 
 $('#custom').pagination({
-    current: 2,  // 默认为1
-    pageSize: 20,  // 默认为10
-    total: 1234,  // 默认0
+    current: 2,  // 首次显示第2页
+    total: 1234,
     callback: function (pageIndex, pagination) {
 
     }
 })
-</script>
+$('#api').pagination({
+    total: 199,
+    callback: function (pageIndex, pagination) {
+        pagination.setTotal(101); // 请求后将总数改为101条
+    }
+})
+    </script>
 
 </body>
+
 </html>

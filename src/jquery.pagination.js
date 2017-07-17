@@ -4,11 +4,11 @@
 
         var me = this;
         options = $.extend({
-            total: 0,
-            current: 1,
-            pageSize: 10,
-            ellipsis: '…',
-            callback: null
+            total: 0,        // 数据总数
+            current: 1,      // 当前页码
+            pageSize: 10,    // 分页大小
+            ellipsis: '…',   // 页码间隔省略符号
+            callback: null   // 点击页码回调，回调参数（当前页码，分页组件）
         }, options);
 
         var pageCount, pages, current = options.current, total = options.total;
@@ -69,7 +69,7 @@
         };
 
         me.on('click', '[data-page]:not(.disabled)', function () {
-            var page = $(this).data('page');
+            var page = Number($(this).data('page'));
             if (!isNaN(page)) {
                 current = page;
                 render();
