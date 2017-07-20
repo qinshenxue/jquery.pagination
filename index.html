@@ -136,7 +136,12 @@
 
     }
 })</code></pre>
-        <h2>API</h2>
+
+        <h2>Props</h2>
+        <h3>pagination.current</h3>
+        <p>当前页码</p>
+
+        <h2>Methods</h2>
         <h3>pagination.setTotal(total:number)</h3>
         <p>用于回调修改数据总数，比如ajax请求后，数据总数会发生改变，分页总数也要相应的发生改变</p>
         <div id="api" class="pagination-custom" style="margin: 20px 0"></div>
@@ -146,33 +151,48 @@
         pagination.setTotal(<span class="hljs-number">101</span>); <span class="hljs-comment">// 请求后将总数改为101条</span>
     }
 })</code></pre>
+        <p>setTotal(0)，即从有数据变为无数据时，分页组件隐藏</p>
+        <div id="hide" class="pagination-custom" style="margin: 20px 0"></div>
+        <pre><code class="javascript hljs">$(<span class="hljs-string">'#hide'</span>).pagination({
+    <span class="hljs-attr">total</span>: <span class="hljs-number">99</span>,
+    <span class="hljs-attr">callback</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pageIndex, pagination</span>) </span>{
+        pagination.setTotal(<span class="hljs-number">0</span>); <span class="hljs-comment">// 请求后将总数改为0</span>
+    }
+})</code></pre>
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="src/jquery.pagination.js"></script>
     <script>
         $('#test').pagination({
-            current: 2,  // 默认为1
-            pageSize: 20,  // 默认为10
-            total: 1234,  // 默认0
+            current: 2, // 默认为1
+            pageSize: 20, // 默认为10
+            total: 1234, // 默认0
             callback: function (pageIndex, pagination) {
                 $('#output').text('获取第' + pageIndex + '页数据');
             }
         })
 
-$('#custom').pagination({
-    current: 2,  // 首次显示第2页
-    total: 1234,
-    callback: function (pageIndex, pagination) {
+        $('#custom').pagination({
+            current: 2, // 首次显示第2页
+            total: 1234,
+            callback: function (pageIndex, pagination) {
 
-    }
-})
-$('#api').pagination({
-    total: 199,
-    callback: function (pageIndex, pagination) {
-        pagination.setTotal(101); // 请求后将总数改为101条
-    }
-})
+            }
+        })
+        $('#api').pagination({
+            total: 199,
+            callback: function (pageIndex, pagination) {
+                pagination.setTotal(101); // 请求后将总数改为101条
+            }
+        })
+
+        $('#hide').pagination({
+            total: 99,
+            callback: function (pageIndex, pagination) {
+                pagination.setTotal(0); // 请求后将总数改为0
+            }
+        })
     </script>
 
 </body>
