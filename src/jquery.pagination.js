@@ -40,7 +40,7 @@
                 return;
             }
             if (current > pageCount) {
-                current = pageCount;
+                me.current = current = pageCount;
             }
             if (pageCount > 11) {
                 var len = pageCount - current;
@@ -64,8 +64,11 @@
             }
         }
 
-        me.setTotal = function (t) {
+        me.setTotal = function (t, cur) {
             total = t;
+            if (cur) {
+                current = cur
+            }
             if (total > 0) {
                 render();
             } else {
@@ -78,7 +81,7 @@
         me.on('click', '[data-page]:not(.disabled)', function () {
             var page = Number($(this).data('page'));
             if (!isNaN(page)) {
-                current = page;
+                me.current = current = page;
                 render();
                 if (options.callback) {
                     options.callback(page, me);
