@@ -37,10 +37,11 @@
             pageCount = Math.ceil(total / options.pageSize);
             pages = [];
             if (pageCount < 2) {
+                setCurrent(1)
                 return;
             }
             if (current > pageCount) {
-                me.current = current = pageCount;
+                setCurrent(pageCount)
             }
             if (pageCount > 11) {
                 var len = pageCount - current;
@@ -64,10 +65,14 @@
             }
         }
 
+        function setCurrent(pageIndex) {
+            me.current = current = pageIndex
+        }
+
         me.setTotal = function (t, cur) {
             total = t;
             if (cur) {
-                current = cur
+                setCurrent(cur)
             }
             if (total > 0) {
                 render();
@@ -81,7 +86,7 @@
         me.on('click', '[data-page]:not(.disabled)', function () {
             var page = Number($(this).data('page'));
             if (!isNaN(page)) {
-                me.current = current = page;
+                setCurrent(page)
                 render();
                 if (options.callback) {
                     options.callback(page, me);
