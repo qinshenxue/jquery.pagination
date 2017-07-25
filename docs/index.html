@@ -20,7 +20,10 @@
                 repo: 'https://github.com/qinshenxue/jquery.pagination',
                 plugins: [
                     function (hook, vm) {
-                        
+                          hook.afterEach(function(html, next) {
+      console.log(html)
+      next(html)
+    })
                         hook.doneEach(function(){
                             console.log($('#demo'))
                             var code =  $('[data-lang="demo"]').text();
