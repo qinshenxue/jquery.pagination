@@ -16,12 +16,7 @@ $('#demo').pagination({
     }
 })
 ```
-<div>
+
+
 <div id="demo"></div>
-
-<script type="text/javascript">
-alert(1);
-
-</script>
-
-</div>
+<script type="text/javascript">alert(1);</script>
