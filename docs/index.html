@@ -23,7 +23,7 @@
                         hook.doneEach(function(){
                             console.log($('#demo'))
                             var code =  $('[data-lang="demo"]').text();
-                            $('[data-lang="demo"]').html(code)
+                            $('[data-lang="demo"]').replaceWith(code)
                         })
                     }
                 ]
