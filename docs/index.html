@@ -21,10 +21,10 @@
                 plugins: [
                     function (hook, vm) {
                           hook.afterEach(function(html, next) {
-      console.log(html)
-                              html += "<script>alert(1)</script>"
-      next(html)
-    })
+      console.log(html);
+      html = html + "<script>alert(1)</script>";
+      next(html);
+    });
                         hook.doneEach(function(){
                             console.log($('#demo'))
                             var code =  $('[data-lang="demo"]').text();
