@@ -17,7 +17,7 @@ $('#demo').pagination({
 })
 ```
 
-<div id="#demo"></div>
+<div id="demo"></div>
 
 <script>
 $('#demo').pagination({
