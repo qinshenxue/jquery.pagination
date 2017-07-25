@@ -16,3 +16,14 @@ $('#demo').pagination({
     }
 })
 ```
+
+``` demo
+$('#demo').pagination({
+    current: 2, // 默认为1
+    pageSize: 20, // 默认为10
+    total: 1234, // 默认0
+    callback: function (pageIndex, pagination) {
+        $('#output').text('获取第' + pageIndex + '页数据');
+    }
+})
+```
