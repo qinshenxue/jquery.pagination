@@ -16,22 +16,22 @@
     <link rel="stylesheet" href="https://rawgit.com/qinshenxue/jquery.pagination/master/dist/jquery.pagination.min.css">
     <script>
         window.$docsify = {
-                basePath: '/jquery.pagination/',
-                repo: 'https://github.com/qinshenxue/jquery.pagination',
-                plugins: [
-                    function (hook, vm) {
-                          hook.afterEach(function(html, next) {
-      console.log(html);
-      html = html + "<script>alert(1)</script>";
-      next(html);
-    });
-                        hook.doneEach(function(){
-                            console.log($('#demo'))
-                            var code =  $('[data-lang="demo"]').text();
-                            $('[data-lang="demo"]').replaceWith(code)
-                        })
-                    }
-                ]
+            basePath: '/jquery.pagination/',
+            repo: 'https://github.com/qinshenxue/jquery.pagination',
+            plugins: [
+                function (hook, vm) {
+                    hook.afterEach(function (html, next) {
+                        console.log(html);
+                        html = html + "<script>alert(1);<\/script>";
+                        next(html);
+                    });
+                    hook.doneEach(function () {
+                        console.log($('#demo'))
+                        var code = $('[data-lang="demo"]').text();
+                        $('[data-lang="demo"]').replaceWith(code)
+                    })
+                }
+            ]
         }
     </script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
