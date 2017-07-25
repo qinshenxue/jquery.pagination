@@ -22,6 +22,7 @@
                     function (hook, vm) {
                           hook.afterEach(function(html, next) {
       console.log(html)
+                              html += "<script>alert(1)</script>"
       next(html)
     })
                         hook.doneEach(function(){
