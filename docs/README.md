@@ -1,10 +1,9 @@
 
 
 # jQuery.pagination
+>基于 jQuery 的简单分页插件
 
-基于 jQuery 的简单分页插件
-
-# 示例
+## 示例
 
 ``` js
 $('#demo').pagination({
@@ -17,7 +16,7 @@ $('#demo').pagination({
 })
 ```
 
-``` js-demo
+``` demo
 <div id="demo"></div>
 <script>
 $('#demo').pagination({
@@ -30,3 +29,20 @@ $('#demo').pagination({
 })
 </script>
 ```
+
+## 配置项
+
+### current
+当前页码
+- **类型：**`number`
+- **默认值：**`1`
+
+### pageSize
+分页大小
+- **类型：**`number`
+- **默认值：**`10`
+
+### total
+数据总条数
+- **类型：**`number`
+- **默认值：**`10`
