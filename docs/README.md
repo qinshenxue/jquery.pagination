@@ -12,7 +12,7 @@ $('#demo').pagination({
     pageSize: 20, // 默认为10
     total: 1234, // 默认0
     callback: function (pageIndex, pagination) {
-        alert('获取第' + pageIndex + '页数据');
+        console.log('获取第' + pageIndex + '页数据');
     }
 })
 ```
@@ -25,7 +25,7 @@ $('#demo').pagination({
     pageSize: 20, // 默认为10
     total: 1234, // 默认0
     callback: function (pageIndex, pagination) {
-        alert('获取第' + pageIndex + '页数据');
+        console.log('获取第' + pageIndex + '页数据');
     }
 })
 </script>
