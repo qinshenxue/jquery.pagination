@@ -18,6 +18,8 @@ $('#demo').pagination({
 ```
 
 ``` demo
+<div id="demo"></div>
+<script>
 $('#demo').pagination({
     current: 2, // 默认为1
     pageSize: 20, // 默认为10
@@ -26,4 +28,5 @@ $('#demo').pagination({
         $('#output').text('获取第' + pageIndex + '页数据');
     }
 })
+</script>
 ```
