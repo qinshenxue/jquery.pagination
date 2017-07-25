@@ -22,7 +22,8 @@
                         
                         hook.doneEach(function(){
                             console.log($('#demo'))
-                            console.log($('[data-lang="demo"]'))
+                            var code =  $('[data-lang="demo"]').text();
+                            $('[data-lang="demo"]').html(code)
                         })
                     }
                 ]
