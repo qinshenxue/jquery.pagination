@@ -21,6 +21,7 @@ $('#demo').pagination({
 
 <script>
 $(function(){
+    alert(1);
 $('#demo').pagination({
     current: 2, // 默认为1
     pageSize: 20, // 默认为10
