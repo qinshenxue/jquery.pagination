@@ -19,21 +19,16 @@
                 repo: 'https://github.com/qinshenxue/jquery.pagination',
                 plugins: [
                     function (hook, vm) {
-                        console.log(hook)
-                        console.log(vm)
-                        hook.afterEach(function (html, next) {
-                            // 解析成 html 后调用。beforeEach 和 afterEach 支持处理异步逻辑
-                            // ...
-                            // 异步处理完成后调用 next(html) 返回结果
-                            console.log(html)
-                            next(html)
+                        
+                        hook.doneEach(function(){
+                            console.log($('script'))
                         })
                     }
                 ]
         }
     </script>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery.pagination.min.js"></script>
+    <script type="text/javascript" src="https://raw.githubusercontent.com/qinshenxue/jquery.pagination/master/dist/jquery.pagination.min.js"></script>
 
 </head>
 
