@@ -46,3 +46,7 @@ $('#demo').pagination({
 数据总条数
 - **类型：**`number`
 - **默认值：**`10`
+
+## callback
+切换页码后执行回调函数
+- **类型：**`Function`
