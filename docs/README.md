@@ -19,18 +19,8 @@ $('#demo').pagination({
 <div>
 <div id="demo"></div>
 
-<script>
-$(function(){
-    alert(1);
-$('#demo').pagination({
-    current: 2, // 默认为1
-    pageSize: 20, // 默认为10
-    total: 1234, // 默认0
-    callback: function (pageIndex, pagination) {
-        $('#output').text('获取第' + pageIndex + '页数据');
-    }
-})
-})
+<script type="text/javascript">
+alert(1);
 
 </script>
 
