@@ -47,6 +47,6 @@ $('#demo').pagination({
 - **类型：**`number`
 - **默认值：**`10`
 
-## callback
+### callback
 切换页码后执行回调函数
 - **类型：**`Function`
